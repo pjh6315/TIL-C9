@@ -36,7 +36,7 @@ def send():
     return render_template('send.html')
     
 @app.route('/receive')
-def receive():
+def receive():cd
     #request.args
     #{'who' : 'junwoo', 'message':'hello'}
     

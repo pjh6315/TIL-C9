@@ -6,8 +6,8 @@ from flask_migrate import Migrate
 app = Flask(__name__)
 
 # sqlalchemy
-app.config['SQLAlCHEMY_DATABASE_URI'] = 'sqlite:///db_flask.sqlite3'
-app.config['SQLAlCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db_flask.sqlite3'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 #sqlalchemy 초기화
 db = SQLAlchemy(app)
@@ -54,11 +54,24 @@ class User(db.Model):
 # ORDER
 # users = User.query.order_by(User.username).all()
 
-#LIMIT
-#users = User.query.limit(1).all
-
-#OFFSET
+# LIMIT
+# users = User.query.limit(1).all
+ 
+# OFFSET
 # users = User.query.offset(2).all()
 
 # ORDER LIMIT OFFSET
 # users = User.query.order_by(User.username).limit(1).offset(1).all()
+
+#[DELETE]
+# DELETE FROM users WHERE id=1;
+# user = User.query.get(1)
+# db.session.delete(user)
+# db.session.commit()
+
+#[UPDATE]
+# UPDATE users SET username = 'pjh' WHERE id=2;
+# user = User.query.get(2)
+# user.username = 'godjh'
+# db.session.commit()
+

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Post, Comment
+from .models import Post, Comment, Question, Choice
 
 # Create your views here.
 
@@ -71,3 +71,10 @@ def comments_delete(request, post_id, comment_id):
     
     return redirect('posts:detail',post_id)
     
+
+def go_question(request):
+    questions = Question.objects.all()
+    choices = Choice.objects.all()
+    return render(request, 'question.html',{'questions':questions},{'choices':choices})
+    
+
